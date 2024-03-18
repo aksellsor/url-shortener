@@ -4,6 +4,151 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha256-L/W5Wfqfa0sdBNIKN9cG6QA5F2qx4qICmU2VgLruv9Y=" crossorigin="anonymous">
         <title>Shorter URL</title>
+        <style>
+               @media (hover: hover) {
+            body {
+                overscroll-behavior: none;
+                touch-action: pan-down;
+            }
+        }
+
+        body.noscroll {
+            height: 100vh;
+            width: 100vw;
+            touch-action: none;
+            -webkit-overflow-scrolling: none;
+            overflow: hidden;
+            overscroll-behavior: none;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+                sans-serif;
+
+            background-color: #212121;
+            background: linear-gradient(57deg,
+                    #353334 0%,
+                    rgba(0, 0, 0, 1) 88%);
+            color: #fff;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 3rem;
+
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            background-image: var(--bg-img);
+            inset: 0;
+            opacity: 0.3;
+            background-repeat: repeat;
+            background-size: cover;
+            filter: blur(15px);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+
+
+        /* body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            opacity: 0.2;
+            background-repeat: repeat;
+            background-size: cover;
+            pointer-events: none;
+            z-index: -1;
+            background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20512%20512%22%20width%3D%22512%22%20height%3D%22512%22%20preserveAspectRatio%3D%22none%22%3E%20%3Ccircle%20cx%3D%22256%22%20cy%3D%22256%22%20r%3D%2210.01%25%22%20fill%3D%22%23565559%22%20%2F%3E%3C%2Fsvg%3E);
+            background-size: 10px;
+            background-position: center;
+            background-repeat: repeat;
+        } */
+
+        hr {
+            border-color: #585858;
+            border-width: 1px;
+            border-style: solid;
+        }
+
+        html {
+            scrollbar-face-color: #646464;
+            scrollbar-base-color: #646464;
+            scrollbar-3dlight-color: #646464;
+            scrollbar-highlight-color: #646464;
+            scrollbar-track-color: #000;
+            scrollbar-arrow-color: #000;
+            scrollbar-shadow-color: #646464;
+            scrollbar-dark-shadow-color: #646464;
+            font-size: 16px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 3px;
+        }
+
+        ::-webkit-scrollbar-button {
+            background-color: #666;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #646464;
+        }
+
+        ::-webkit-scrollbar-track-piece {
+            background-color: #000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            height: 50px;
+            background-color: #666;
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-corner {
+            background-color: #646464;
+        }
+
+        ::-webkit-resizer {
+            background-color: #666;
+        }
+
+
+        #markdown,
+        .container {
+            padding-top: 50px;
+        }
+
+        @media (max-width: 800px) {
+            body {
+                padding: 1.25rem;
+            }
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        a {
+            color: #fff;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        </style>
   </head>
   <body>
     <div class="card">
@@ -39,24 +184,4 @@
     <script src="https://gcore.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://gcore.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg=" crossorigin="anonymous"></script>
     <script src="https://gcore.jsdelivr.net/npm/url-shorten-worker@1.0.7/main.js" crossorigin="anonymous"></script>
-  <script>
-    function loadStyle(src) {
-        return new Promise(function (resolve, reject) {
-            let link = document.createElement('link');
-            link.href = src;
-            link.rel = 'stylesheet';
-    
-            link.onload = () => resolve(link);
-            link.onerror = () => reject(new Error(`Style load error for ${src}`));
-    
-            document.head.append(link);
-        });
-    }
-    window.onload = function () {
-        let today = new Date();
-    loadStyle(`https://raw.githubusercontent.com/aksellsor/styles/main/global.css?token=${today?.getTime()}`)
-        .then(() => {
-        }).catch(console.error);
-}
-  </script>
   </body></html>
