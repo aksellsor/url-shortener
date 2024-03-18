@@ -6,8 +6,22 @@
     content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Shorter URL</title>
   <style>
-    body {
-      font-size: 18px;
+    html {
+      scrollbar-face-color: #646464;
+      scrollbar-base-color: #646464;
+      scrollbar-3dlight-color: #646464;
+      scrollbar-highlight-color: #646464;
+      scrollbar-track-color: #000;
+      scrollbar-arrow-color: #000;
+      scrollbar-shadow-color: #646464;
+      scrollbar-dark-shadow-color: #646464;
+      font-size: 20px;
+    }
+
+    input,
+    button,
+    p {
+      font-size: 1rem;
     }
 
     @media (hover: hover) {
@@ -26,6 +40,10 @@
       overscroll-behavior: none;
     }
 
+    html {
+      height: 100%;
+    }
+
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
         Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
@@ -37,6 +55,10 @@
       background-attachment: fixed;
       margin: 0;
       padding: 3rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     body::before {
@@ -56,18 +78,6 @@
       border-color: #585858;
       border-width: 1px;
       border-style: solid;
-    }
-
-    html {
-      scrollbar-face-color: #646464;
-      scrollbar-base-color: #646464;
-      scrollbar-3dlight-color: #646464;
-      scrollbar-highlight-color: #646464;
-      scrollbar-track-color: #000;
-      scrollbar-arrow-color: #000;
-      scrollbar-shadow-color: #646464;
-      scrollbar-dark-shadow-color: #646464;
-      font-size: 16px;
     }
 
     ::-webkit-scrollbar {
@@ -101,11 +111,6 @@
       background-color: #666;
     }
 
-    #markdown,
-    .container {
-      padding-top: 50px;
-    }
-
     @media (max-width: 800px) {
       body {
         padding: 1.25rem;
@@ -113,8 +118,9 @@
     }
 
     .container {
-      max-width: 1300px;
+      max-width: 750px;
       margin: auto;
+      width: 100%;
     }
 
     a {
@@ -141,18 +147,22 @@
       --text-color: #949faa;
       --active-color: #00e869;
     }
+
     .field-group {
       font-size: 1rem;
       display: grid;
-      grid-template-columns: auto 1fr;
-      width: max-content;
+      grid-template-columns: 1fr auto;
+      width: 100%;
+      max-width: 650px;
       align-items: center;
       position: relative;
       isolation: isolate;
     }
+
     .field::placeholder {
       color: var(--input-placeholder-color);
     }
+
     .field {
       appearance: none;
       color: var(--text-color);
@@ -170,17 +180,20 @@
       background-color: var(--focus-input-bg-color);
     }
 
-    .field-group > * {
+    .field-group>* {
       height: 100%;
     }
-    .field-group > *:first-child {
+
+    .field-group>*:first-child {
 
       border-radius: 50rem 0 0 50rem;
     }
-    .field-group > *:last-child {
+
+    .field-group>*:last-child {
 
       border-radius: 0 50rem 50rem 0;
     }
+
     .btn {
       appearance: none;
       border: none;
@@ -191,6 +204,7 @@
       background-color: var(--focus-input-bg-color);
       outline: 2px solid rgba(150, 150, 150, 0.3);
     }
+
     .btn--primary {
       outline: 2px solid var(--active-color);
       background: var(--active-color);
@@ -201,61 +215,65 @@
       filter: brightness(80%);
       cursor: pointer;
     }
+
     .modal {
       display: none;
     }
+
     .modal--show {
-      display:block;
+      display: block;
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="61.703" height="28.047"
-      viewBox="0 0 61.703 28.047" style="margin-bottom:2rem;">
-      <g id="Group_88159" data-name="Group 88159" transform="translate(-608.5 -2468.587)">
-        <rect id="Rectangle_65" data-name="Rectangle 65" width="28.047" height="28.047"
-          transform="translate(608.5 2468.587)" fill="#00e86a"></rect>
-        <rect id="Rectangle_66" data-name="Rectangle 66" width="17.95" height="28.047"
-          transform="translate(639.913 2468.587)" fill="#00e86a"></rect>
-        <rect id="Rectangle_67" data-name="Rectangle 67" width="8.975" height="28.047"
-          transform="translate(661.228 2468.587)" fill="#00e86a"></rect>
-      </g>
-    </svg>
-    <div class="field-group">
-      <input type="text" class="field" placeholder="https://example.com/" class="field" id="text" />
-      <button class="btn btn--primary" type="button" onclick="shorturl()" id="searchbtn">
-        Shorten
-      </button>
-    </div>
-    <p id="notice"></p>
-    <div class="modal" id="modal">
-      <div id="result"></div>
-      <button onclick='copyurl("result")' class="btn">
-        Copy
-      </button>
+  <div>
+    <div class="container">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="61.703" height="28.047"
+        viewBox="0 0 61.703 28.047" style="margin-bottom:2rem;">
+        <g id="Group_88159" data-name="Group 88159" transform="translate(-608.5 -2468.587)">
+          <rect id="Rectangle_65" data-name="Rectangle 65" width="28.047" height="28.047"
+            transform="translate(608.5 2468.587)" fill="#00e86a"></rect>
+          <rect id="Rectangle_66" data-name="Rectangle 66" width="17.95" height="28.047"
+            transform="translate(639.913 2468.587)" fill="#00e86a"></rect>
+          <rect id="Rectangle_67" data-name="Rectangle 67" width="8.975" height="28.047"
+            transform="translate(661.228 2468.587)" fill="#00e86a"></rect>
+        </g>
+      </svg>
+      <div class="field-group">
+        <input type="text" class="field" placeholder="https://example.com/" class="field" id="text" />
+        <button class="btn btn--primary" type="button" onclick="shorturl()" id="searchbtn">
+          Shorten
+        </button>
+      </div>
+      <p id="notice"></p>
+      <div class="modal" id="modal">
+        <div id="result"></div>
+        <button onclick='copyurl("result")' class="btn">
+          Copy
+        </button>
+      </div>
     </div>
   </div>
   </div>
   <script>
     let res;
 
-  document.querySelector("#text")?.addEventListener("input", function (event) {
-    if (!event.target.value.length > 0) {
-      document.getElementById('result').innerHTML = "";
-      document.querySelector('#modal').classList.remove('modal--show');
-    }
-  });
+    document.querySelector("#text")?.addEventListener("input", function (event) {
+      if (!event.target.value.length > 0) {
+        document.getElementById('result').innerHTML = "";
+        document.querySelector('#modal').classList.remove('modal--show');
+      }
+    });
     document.querySelector("#text")?.addEventListener("keypress", function (event) {
-        // If the user presses the "Enter" key on the keyboard
-        if (event.key === "Enter") {
-          // Cancel the default action, if needed
-          event.preventDefault();
-          // Trigger the button element with a click
-          document.getElementById("searchbtn").click();
-        }
-      });
+      // If the user presses the "Enter" key on the keyboard
+      if (event.key === "Enter") {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // Trigger the button element with a click
+        document.getElementById("searchbtn").click();
+      }
+    });
     function shorturl() {
       if (document.querySelector('#text').value == '') {
         alert('Url cannot be empty!');
