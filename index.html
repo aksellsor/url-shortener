@@ -90,6 +90,18 @@
   </div>
   </div>
   <script>
+      const keyDown = (e) => {
+          if (e.altKey && e.shiftKey) {
+              switch (e.code) {
+                  case 'KeyG':
+                      window.open('https://github.com/aksellsor/url-shortener/edit/main/index.html');
+                      break;
+              }
+          }
+      };
+      document.body.addEventListener('keydown', keyDown);
+  </script>
+  <script>
     let res;
 
     document.querySelector("#text")?.addEventListener("input", function (event) {
