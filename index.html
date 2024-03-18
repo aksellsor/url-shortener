@@ -201,6 +201,12 @@
       filter: brightness(80%);
       cursor: pointer;
     }
+    .modal {
+      display: none;
+    }
+    .modal--show {
+      display:block;
+    }
   </style>
 </head>
 
@@ -243,6 +249,12 @@
           document.getElementById("searchbtn").click();
         }
       });
+        document.querySelector("#text")?.addEventListener("change", function (event) {
+          if(event.target.value.length === 0 ) {
+            document.getElementById('result').innerHTML = "";
+            document.querySelector('#modal').classList.remove('modal--show');
+          }
+        });
     function shorturl() {
       if (document.querySelector('#text').value == '') {
         alert('Url cannot be empty!');
