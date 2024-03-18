@@ -1,58 +1,59 @@
 <html>
-    <head>
-        <meta http-equiv="content-type" content="txt/html; charset=utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha256-L/W5Wfqfa0sdBNIKN9cG6QA5F2qx4qICmU2VgLruv9Y=" crossorigin="anonymous">
-        <title>Shorter URL</title>
-        <style>
-               @media (hover: hover) {
-            body {
-                overscroll-behavior: none;
-                touch-action: pan-down;
-            }
-        }
-
-        body.noscroll {
-            height: 100vh;
-            width: 100vw;
-            touch-action: none;
-            -webkit-overflow-scrolling: none;
-            overflow: hidden;
-            overscroll-behavior: none;
-        }
-
+  <head>
+    <meta http-equiv="content-type" content="txt/html; charset=utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link
+      rel="stylesheet"
+      href="https://gcore.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha256-L/W5Wfqfa0sdBNIKN9cG6QA5F2qx4qICmU2VgLruv9Y="
+      crossorigin="anonymous" />
+    <title>Shorter URL</title>
+    <style>
+      @media (hover: hover) {
         body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-                Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-                sans-serif;
-
-            background-color: #212121;
-            background: linear-gradient(57deg,
-                    #353334 0%,
-                    rgba(0, 0, 0, 1) 88%);
-            color: #fff;
-            background-attachment: fixed;
-            margin: 0;
-            padding: 3rem;
-
+          overscroll-behavior: none;
+          touch-action: pan-down;
         }
+      }
 
-        body::before {
-            content: "";
-            position: fixed;
-            background-image: var(--bg-img);
-            inset: 0;
-            opacity: 0.3;
-            background-repeat: repeat;
-            background-size: cover;
-            filter: blur(15px);
-            pointer-events: none;
-            z-index: -1;
-        }
+      body.noscroll {
+        height: 100vh;
+        width: 100vw;
+        touch-action: none;
+        -webkit-overflow-scrolling: none;
+        overflow: hidden;
+        overscroll-behavior: none;
+      }
 
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+          Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+          sans-serif;
 
+        background-color: #212121;
+        background: linear-gradient(57deg, #353334 0%, rgba(0, 0, 0, 1) 88%);
+        color: #fff;
+        background-attachment: fixed;
+        margin: 0;
+        padding: 3rem;
+      }
 
-        /* body::after {
+      body::before {
+        content: '';
+        position: fixed;
+        background-image: var(--bg-img);
+        inset: 0;
+        opacity: 0.3;
+        background-repeat: repeat;
+        background-size: cover;
+        filter: blur(15px);
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      /* body::after {
             content: "";
             position: fixed;
             inset: 0;
@@ -67,118 +68,235 @@
             background-repeat: repeat;
         } */
 
-        hr {
-            border-color: #585858;
-            border-width: 1px;
-            border-style: solid;
-        }
+      hr {
+        border-color: #585858;
+        border-width: 1px;
+        border-style: solid;
+      }
 
-        html {
-            scrollbar-face-color: #646464;
-            scrollbar-base-color: #646464;
-            scrollbar-3dlight-color: #646464;
-            scrollbar-highlight-color: #646464;
-            scrollbar-track-color: #000;
-            scrollbar-arrow-color: #000;
-            scrollbar-shadow-color: #646464;
-            scrollbar-dark-shadow-color: #646464;
-            font-size: 16px;
-        }
+      html {
+        scrollbar-face-color: #646464;
+        scrollbar-base-color: #646464;
+        scrollbar-3dlight-color: #646464;
+        scrollbar-highlight-color: #646464;
+        scrollbar-track-color: #000;
+        scrollbar-arrow-color: #000;
+        scrollbar-shadow-color: #646464;
+        scrollbar-dark-shadow-color: #646464;
+        font-size: 16px;
+      }
 
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 3px;
-        }
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 3px;
+      }
 
-        ::-webkit-scrollbar-button {
-            background-color: #666;
-        }
+      ::-webkit-scrollbar-button {
+        background-color: #666;
+      }
 
-        ::-webkit-scrollbar-track {
-            background-color: #646464;
-        }
+      ::-webkit-scrollbar-track {
+        background-color: #646464;
+      }
 
-        ::-webkit-scrollbar-track-piece {
-            background-color: #000;
-        }
+      ::-webkit-scrollbar-track-piece {
+        background-color: #000;
+      }
 
-        ::-webkit-scrollbar-thumb {
-            height: 50px;
-            background-color: #666;
-            border-radius: 3px;
-        }
+      ::-webkit-scrollbar-thumb {
+        height: 50px;
+        background-color: #666;
+        border-radius: 3px;
+      }
 
-        ::-webkit-scrollbar-corner {
-            background-color: #646464;
-        }
+      ::-webkit-scrollbar-corner {
+        background-color: #646464;
+      }
 
-        ::-webkit-resizer {
-            background-color: #666;
-        }
+      ::-webkit-resizer {
+        background-color: #666;
+      }
 
+      #markdown,
+      .container {
+        padding-top: 50px;
+      }
 
-        #markdown,
-        .container {
-            padding-top: 50px;
+      @media (max-width: 800px) {
+        body {
+          padding: 1.25rem;
         }
+      }
 
-        @media (max-width: 800px) {
-            body {
-                padding: 1.25rem;
-            }
-        }
+      .container {
+        max-width: 1300px;
+        margin: auto;
+      }
 
-        .container {
-            max-width: 1300px;
-            margin: auto;
-        }
+      a {
+        color: #fff;
+      }
 
-        a {
-            color: #fff;
-        }
+      a:hover {
+        opacity: 0.8;
+      }
 
-        a:hover {
-            opacity: 0.8;
-        }
-
-        *,
-        *::after,
-        *::before {
-            box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        </style>
+      *,
+      *::after,
+      *::before {
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="https://example.com/" id="text">
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="button" onclick="shorturl()" id="searchbtn">Shorten</button>
-          </div>
-        <p id="notice"></p>             
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="https://example.com/"
+          id="text" />
+        <div class="input-group-append">
+          <button
+            class="btn btn-primary"
+            type="button"
+            onclick="shorturl()"
+            id="searchbtn">
+            Shorten
+          </button>
+        </div>
+        <p id="notice"></p>
       </div>
     </div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Result</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
           <div class="modal-body" id="result">No result</div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" onclick="copyurl(&quot;result&quot;)" data-toggle="popover" data-placement="bottom" data-content="Copied!" data-original-title="" title="">Copy</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>    
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick='copyurl("result")'
+              data-toggle="popover"
+              data-placement="bottom"
+              data-content="Copied!"
+              data-original-title=""
+              title="">
+              Copy
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal">
+              Close
+            </button>
           </div>
         </div>
       </div>
-    </div>         
-    <script src="https://gcore.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
-    <script src="https://gcore.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://gcore.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg=" crossorigin="anonymous"></script>
-    <script src="https://gcore.jsdelivr.net/npm/url-shorten-worker@1.0.7/main.js" crossorigin="anonymous"></script>
-  </body></html>
+    </div>
+    <script
+      src="https://gcore.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.slim.min.js"
+      integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+      crossorigin="anonymous"></script>
+    <script
+      src="https://gcore.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://gcore.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+      integrity="sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg="
+      crossorigin="anonymous"></script>
+    <script>
+      let res;
+      function shorturl() {
+        if (document.querySelector('#text').value == '') {
+          alert('Url cannot be empty!');
+          return;
+        }
+
+        document.getElementById('searchbtn').disabled = true;
+        document.getElementById('searchbtn').innerHTML =
+          '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Please wait...';
+        fetch(window.location.pathname, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ url: document.querySelector('#text').value }),
+        })
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (myJson) {
+            res = myJson;
+            document.getElementById('searchbtn').disabled = false;
+            document.getElementById('searchbtn').innerHTML = ' Shorten it';
+            if (res.key !== '')
+              document.getElementById('result').innerHTML =
+                window.location.host + res.key;
+            $('#exampleModal').modal('show');
+          })
+          .catch(function (err) {
+            alert('Unknow error. Please retry!');
+            console.log(err);
+            document.getElementById('searchbtn').disabled = false;
+            document.getElementById('searchbtn').innerHTML = ' Shorten it';
+          });
+      }
+      function copyurl(id, attr) {
+        let target = null;
+
+        if (attr) {
+          target = document.createElement('div');
+          target.id = 'tempTarget';
+          target.style.opacity = '0';
+          if (id) {
+            let curNode = document.querySelector('#' + id);
+            target.innerText = curNode[attr];
+          } else {
+            target.innerText = attr;
+          }
+          document.body.appendChild(target);
+        } else {
+          target = document.querySelector('#' + id);
+        }
+
+        try {
+          let range = document.createRange();
+          range.selectNode(target);
+          window.getSelection().removeAllRanges();
+          window.getSelection().addRange(range);
+          document.execCommand('copy');
+          window.getSelection().removeAllRanges();
+          // console.log('Copy success')
+        } catch (e) {
+          // console.log('Copy error')
+        }
+
+        if (attr) {
+          // remove temp target
+          target.parentElement.removeChild(target);
+        }
+      }
+      if (window.location.host == 'lnks.eu.org') {
+        document.getElementById('notice').innerHTML = notice;
+      }
+    </script>
+  </body>
+</html>
