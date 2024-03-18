@@ -240,12 +240,14 @@
   </div>
   <script>
     let res;
-    document.querySelector("#text")?.addEventListener("keypress", function (event) {
 
-      if (!event.target.value.length > 0) {
-        document.getElementById('result').innerHTML = "";
-        document.querySelector('#modal').classList.remove('modal--show');
-      }
+  document.querySelector("#text")?.addEventListener("input", function (event) {
+    if (!event.target.value.length > 0) {
+      document.getElementById('result').innerHTML = "";
+      document.querySelector('#modal').classList.remove('modal--show');
+    }
+  });
+    document.querySelector("#text")?.addEventListener("keypress", function (event) {
         // If the user presses the "Enter" key on the keyboard
         if (event.key === "Enter") {
           // Cancel the default action, if needed
