@@ -153,13 +153,14 @@
       appearance: none;
       color: var(--text-color);
       border: 0;
-      outline: 2px solid rgba(150,150,150,0.3);
+      outline: 2px solid rgba(150, 150, 150, 0.3);
       background: var(--input-bg-color);
       padding: .5rem 1rem;
       border-radius: 50rem 0 0 50rem;
       line-height: 1;
       height: 100%;
     }
+
     .field:focus {
       color: var(--active-color);
       outline-color: var(--active-color);
@@ -176,6 +177,7 @@
       padding: .5rem 1rem;
       line-height: 1;
     }
+
     .btn:hover {
       filter: brightness(80%);
       cursor: pointer;
@@ -222,7 +224,7 @@
       document.getElementById('searchbtn').disabled = true;
       document.getElementById('searchbtn').innerHTML =
         '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Please wait...';
-      console.log(document.querySelector('#text').value);
+      // console.log(document.querySelector('#text').value);
       fetch(window.location.pathname, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -233,6 +235,7 @@
         })
         .then(function (myJson) {
           res = myJson;
+          console.log(res)
           document.getElementById('searchbtn').disabled = false;
           document.getElementById('searchbtn').innerHTML = ' Shorten it';
           if (res.key !== '')
