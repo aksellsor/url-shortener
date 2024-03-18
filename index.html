@@ -40,6 +40,24 @@
     <script src="https://gcore.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg=" crossorigin="anonymous"></script>
     <script src="https://gcore.jsdelivr.net/npm/url-shorten-worker@1.0.7/main.js" crossorigin="anonymous"></script>
   <script>
-   document.body.style.background = "red"; 
+    function loadStyle(src) {
+        return new Promise(function (resolve, reject) {
+            let link = document.createElement('link');
+            link.href = src;
+            link.rel = 'stylesheet';
+    
+            link.onload = () => resolve(link);
+            link.onerror = () => reject(new Error(`Style load error for ${src}`));
+    
+            document.head.append(link);
+        });
+    }
+    window.onload = function () {
+        let today = new Date();
+    loadStyle(`https://raw.githubusercontent.com/aksellsor/styles/main/global.css?token=${today?.getTime()}`)
+        .then(() => {
+            alert('All styles are loaded!');
+        }).catch(console.error);
+}
   </script>
   </body></html>
