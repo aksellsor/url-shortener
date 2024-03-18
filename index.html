@@ -215,6 +215,15 @@
   </div>
   <script>
     let res;
+    document.querySelector("#text")?.addEventListener("keypress", function (event) {
+        // If the user presses the "Enter" key on the keyboard
+        if (event.key === "Enter") {
+          // Cancel the default action, if needed
+          event.preventDefault();
+          // Trigger the button element with a click
+          document.getElementById("searchbtn").click();
+        }
+      });
     function shorturl() {
       if (document.querySelector('#text').value == '') {
         alert('Url cannot be empty!');
@@ -235,7 +244,7 @@
         })
         .then(function (myJson) {
           res = myJson;
-          console.log(res)
+          console.log(res);
           document.getElementById('searchbtn').disabled = false;
           document.getElementById('searchbtn').innerHTML = ' Shorten it';
           if (res.key !== '')
@@ -245,7 +254,7 @@
         })
         .catch(function (err) {
           alert('Unknow error. Please retry!');
-          console.log(err);
+          console.error(err);
           document.getElementById('searchbtn').disabled = false;
           document.getElementById('searchbtn').innerHTML = ' Shorten it';
         });
