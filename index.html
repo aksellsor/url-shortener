@@ -242,9 +242,11 @@
     let res;
     document.querySelector("#text")?.addEventListener("keypress", function (event) {
       
-      if(event.key === "Backspace" && event.target.value.length === 0 ) {
+      if(event.key === "Backspace") {
+        if(!event.target.value.length > 0) {
             document.getElementById('result').innerHTML = "";
             document.querySelector('#modal').classList.remove('modal--show');
+        }
           }
         // If the user presses the "Enter" key on the keyboard
         if (event.key === "Enter") {
