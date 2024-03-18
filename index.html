@@ -151,16 +151,19 @@
 
     .field {
       appearance: none;
-      color: #fff;
-      border: 1px solid var(--active-color);
-      background: transparent;
+      color: var(--text-color);
+      border: 0;
+      outline: 1px solid rgba(150,150,150,0.3);
+      background: var(--input-bg-color);
       padding: .5rem 1rem;
       border-radius: 50rem 0 0 50rem;
       line-height: 1;
       height: 100%;
     }
     .field:focus {
-      outline-color: var(--active-color);
+      color: var(--active-color);
+      outline: 1px solid var(--active-color);
+      background-color: var(--focus-input-bg-color);
     }
 
     .btn {
