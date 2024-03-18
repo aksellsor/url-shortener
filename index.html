@@ -1,154 +1,16 @@
 <html>
 
 <head>
-  <link
-    href="data:image/svg+xml;base64,CiAgICAgIDxzdmcgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjYxLjcwMyIgaGVpZ2h0PSIyOC4wNDciCiAgICAgICAgdmlld0JveD0iMCAwIDYxLjcwMyAyOC4wNDciIHN0eWxlPSJtYXJnaW4tYm90dG9tOjJyZW07Ij4KICAgICAgICA8ZyBpZD0iR3JvdXBfODgxNTkiIGRhdGEtbmFtZT0iR3JvdXAgODgxNTkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC02MDguNSAtMjQ2OC41ODcpIj4KICAgICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGVfNjUiIGRhdGEtbmFtZT0iUmVjdGFuZ2xlIDY1IiB3aWR0aD0iMjguMDQ3IiBoZWlnaHQ9IjI4LjA0NyIKICAgICAgICAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjA4LjUgMjQ2OC41ODcpIiBmaWxsPSIjMDBlODZhIj48L3JlY3Q+CiAgICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlXzY2IiBkYXRhLW5hbWU9IlJlY3RhbmdsZSA2NiIgd2lkdGg9IjE3Ljk1IiBoZWlnaHQ9IjI4LjA0NyIKICAgICAgICAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjM5LjkxMyAyNDY4LjU4NykiIGZpbGw9IiMwMGU4NmEiPjwvcmVjdD4KICAgICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGVfNjciIGRhdGEtbmFtZT0iUmVjdGFuZ2xlIDY3IiB3aWR0aD0iOC45NzUiIGhlaWdodD0iMjguMDQ3IgogICAgICAgICAgICB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2NjEuMjI4IDI0NjguNTg3KSIgZmlsbD0iIzAwZTg2YSI+PC9yZWN0PgogICAgICAgIDwvZz4KICAgICAgPC9zdmc+"
-    rel="icon" type="image/x-icon">
+<link href="https://github.com/aksellsor/styles/raw/main/favicon.svg" rel="icon" type="image/x-icon">
   <meta http-equiv="content-type" content="txt/html; charset=utf-8" />
   <meta name="viewport"
     content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Shorter URL</title>
   <style>
-    html {
-      scrollbar-face-color: #646464;
-      scrollbar-base-color: #646464;
-      scrollbar-3dlight-color: #646464;
-      scrollbar-highlight-color: #646464;
-      scrollbar-track-color: #000;
-      scrollbar-arrow-color: #000;
-      scrollbar-shadow-color: #646464;
-      scrollbar-dark-shadow-color: #646464;
-      font-size: 20px;
-    }
-
-    input,
-    button,
-    p {
-      font-size: 1rem;
-    }
-
-    @media (hover: hover) {
-      body {
-        overscroll-behavior: none;
-        touch-action: pan-down;
-      }
-    }
-
-    body.noscroll {
-      height: 100vh;
-      width: 100vw;
-      touch-action: none;
-      -webkit-overflow-scrolling: none;
-      overflow: hidden;
-      overscroll-behavior: none;
-    }
-
-    html {
-      height: 100%;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-        Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-        sans-serif;
-
-      background-color: #212121;
-      background: linear-gradient(57deg, #353334 0%, rgba(0, 0, 0, 1) 88%);
-      color: #fff;
-      background-attachment: fixed;
-      margin: 0;
-      padding: 3rem;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      background-image: var(--bg-img);
-      inset: 0;
-      opacity: 0.3;
-      background-repeat: repeat;
-      background-size: cover;
-      filter: blur(15px);
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    hr {
-      border-color: #585858;
-      border-width: 1px;
-      border-style: solid;
-    }
-
-    ::-webkit-scrollbar {
-      width: 8px;
-      height: 3px;
-    }
-
-    ::-webkit-scrollbar-button {
-      background-color: #666;
-    }
-
-    ::-webkit-scrollbar-track {
-      background-color: #646464;
-    }
-
-    ::-webkit-scrollbar-track-piece {
-      background-color: #000;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      height: 50px;
-      background-color: #666;
-      border-radius: 3px;
-    }
-
-    ::-webkit-scrollbar-corner {
-      background-color: #646464;
-    }
-
-    ::-webkit-resizer {
-      background-color: #666;
-    }
-
-    @media (max-width: 800px) {
-      body {
-        padding: 1.25rem;
-      }
-    }
-
     .container {
       max-width: 550px;
       margin: auto;
       width: 100%;
-    }
-
-    a {
-      color: #fff;
-    }
-
-    a:hover {
-      opacity: 0.8;
-    }
-
-    *,
-    *::after,
-    *::before {
-      box-sizing: border-box;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    :root {
-      --input-text-color: #fff;
-      --input-placeholder-color: rgba(255, 255, 255, 0.6);
-      --input-bg-color: rgb(43, 43, 43);
-      --focus-input-bg-color: #00e8681b;
-      --text-color: #949faa;
-      --active-color: #00e869;
     }
 
     .field-group {
@@ -160,61 +22,21 @@
       isolation: isolate;
     }
 
-    .field::placeholder {
-      color: var(--input-placeholder-color);
-    }
-
-    .field {
-      appearance: none;
-      color: var(--text-color);
-      border: 0;
-      outline: 2px solid rgba(150, 150, 150, 0.3);
-      background: var(--input-bg-color);
-      padding: .5rem 1rem;
-      line-height: 1;
-      height: 100%;
-    }
-
-    .field:focus {
-      color: var(--active-color);
-      outline-color: var(--active-color);
-      background-color: var(--focus-input-bg-color);
-    }
 
     .field-group>* {
       height: 100%;
+      margin: 0 !important;
+      line-height: 1;
+      padding: .5rem 1.5rem !important;
     }
 
     .field-group>*:first-child {
-
       border-radius: 50rem 0 0 50rem;
     }
 
     .field-group>*:last-child {
-
+      margin-left: -2px;
       border-radius: 0 50rem 50rem 0;
-    }
-
-    .btn {
-      appearance: none;
-      border: none;
-      color: #fff;
-      padding: .5rem 1rem;
-      line-height: 1;
-      border-radius: .5rem;
-      background-color: var(--focus-input-bg-color);
-      outline: 2px solid rgba(150, 150, 150, 0.3);
-    }
-
-    .btn--primary {
-      outline: 2px solid var(--active-color);
-      background: var(--active-color);
-      color: #000;
-    }
-
-    .btn:hover {
-      filter: brightness(80%);
-      cursor: pointer;
     }
 
     .modal {
