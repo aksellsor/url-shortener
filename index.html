@@ -91,7 +91,10 @@
   </div>
   </div>
   <script>
-      document.querySelector("#text")?.focus();
+    window.onload = function() {
+      var input = document.querySelector("#text").focus();
+    }
+    window.addEventListener("lo
       const keyDown = (e) => {
           if (e.altKey && e.shiftKey) {
               switch (e.code) {
