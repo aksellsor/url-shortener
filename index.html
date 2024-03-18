@@ -162,7 +162,7 @@
     }
     .field:focus {
       color: var(--active-color);
-      outline: 1px solid var(--active-color);
+      outline-color: var(--active-color);
       background-color: var(--focus-input-bg-color);
     }
 
@@ -171,10 +171,14 @@
       appearance: none;
       border-radius: 0 50rem 50rem 0;
       border: none;
-      outline: 2px solid rgba(150,150,150,0.3);
+      outline: 2px solid var(--active-color);
       background: var(--active-color);
       padding: .5rem 1rem;
       line-height: 1;
+    }
+    .btn:hover {
+      filter: brightness(80%);
+      cursor: pointer;
     }
   </style>
 </head>
