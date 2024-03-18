@@ -133,13 +133,15 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    .field-group {
+    :root {
       --input-text-color: #fff;
       --input-placeholder-color: rgba(255, 255, 255, 0.6);
       --input-bg-color: rgb(43, 43, 43);
       --focus-input-bg-color: #00e8681b;
       --text-color: #949faa;
       --active-color: #00e869;
+    }
+    .field-group {
       font-size: 1rem;
       display: grid;
       grid-template-columns: auto 1fr;
@@ -148,7 +150,9 @@
       position: relative;
       isolation: isolate;
     }
-
+    .field::placeholder {
+      color: var(--input-placeholder-color);
+    }
     .field {
       appearance: none;
       color: var(--text-color);
@@ -156,7 +160,6 @@
       outline: 2px solid rgba(150, 150, 150, 0.3);
       background: var(--input-bg-color);
       padding: .5rem 1rem;
-      border-radius: 50rem 0 0 50rem;
       line-height: 1;
       height: 100%;
     }
@@ -167,15 +170,26 @@
       background-color: var(--focus-input-bg-color);
     }
 
+    .field-group > *:first-child {
+
+      border-radius: 50rem 0 0 50rem;
+    }
+    .field-group > *:last-child {
+
+      border-radius: 50rem 0 0 50rem;
+    }
     .btn {
       height: 100%;
       appearance: none;
-      border-radius: 0 50rem 50rem 0;
       border: none;
-      outline: 2px solid var(--active-color);
-      background: var(--active-color);
       padding: .5rem 1rem;
       line-height: 1;
+      background-color: var(--focus-input-bg-color);
+      outline: 2px solid rgba(150, 150, 150, 0.3);
+    }
+    .btn--primary {
+      outline: 2px solid var(--active-color);
+      background: var(--active-color);
     }
 
     .btn:hover {
@@ -207,7 +221,7 @@
     <p id="notice"></p>
     <div class="modal" id="modal">
       <div id="result"></div>
-      <button onclick='copyurl("result")'>
+      <button onclick='copyurl("result")' class="btn">
         Copy
       </button>
     </div>
