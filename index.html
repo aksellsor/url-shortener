@@ -4,11 +4,6 @@
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link
-      rel="stylesheet"
-      href="https://gcore.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-      integrity="sha256-L/W5Wfqfa0sdBNIKN9cG6QA5F2qx4qICmU2VgLruv9Y="
-      crossorigin="anonymous" />
     <title>Shorter URL</title>
     <style>
       @media (hover: hover) {
@@ -168,10 +163,12 @@
           </button>
         </div>
         <p id="notice"></p>
-        <div id="result"></div>
-        <button onclick='copyurl("result")'>
-          Copy
-        </button>
+        <div class="modal" id="modal">
+          <div id="result"></div>
+          <button onclick='copyurl("result")'>
+            Copy
+          </button>
+      </div>
       </div>
     </div>
     <script>
@@ -201,7 +198,7 @@
             if (res.key !== '')
               document.getElementById('result').innerHTML =
                 window.location.host + res.key;
-            document.querySelector('#exampleModal').modal('show');
+            document.querySelector('#modal').classList.add('modal--show');
           })
           .catch(function (err) {
             alert('Unknow error. Please retry!');
