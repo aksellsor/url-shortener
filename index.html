@@ -1,250 +1,279 @@
 <html>
-  <head>
-    <meta http-equiv="content-type" content="txt/html; charset=utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Shorter URL</title>
-    <style>
-      @media (hover: hover) {
-        body {
-          overscroll-behavior: none;
-          touch-action: pan-down;
-        }
-      }
 
-      body.noscroll {
-        height: 100vh;
-        width: 100vw;
-        touch-action: none;
-        -webkit-overflow-scrolling: none;
-        overflow: hidden;
-        overscroll-behavior: none;
-      }
+<head>
+  <meta http-equiv="content-type" content="txt/html; charset=utf-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Shorter URL</title>
+  <style>
+    body {
+      font-size: 18px;
+    }
 
+    @media (hover: hover) {
       body {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-          Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-          sans-serif;
-
-        background-color: #212121;
-        background: linear-gradient(57deg, #353334 0%, rgba(0, 0, 0, 1) 88%);
-        color: #fff;
-        background-attachment: fixed;
-        margin: 0;
-        padding: 3rem;
+        overscroll-behavior: none;
+        touch-action: pan-down;
       }
+    }
 
-      body::before {
-        content: '';
-        position: fixed;
-        background-image: var(--bg-img);
-        inset: 0;
-        opacity: 0.3;
-        background-repeat: repeat;
-        background-size: cover;
-        filter: blur(15px);
-        pointer-events: none;
-        z-index: -1;
+    body.noscroll {
+      height: 100vh;
+      width: 100vw;
+      touch-action: none;
+      -webkit-overflow-scrolling: none;
+      overflow: hidden;
+      overscroll-behavior: none;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+        Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+        sans-serif;
+
+      background-color: #212121;
+      background: linear-gradient(57deg, #353334 0%, rgba(0, 0, 0, 1) 88%);
+      color: #fff;
+      background-attachment: fixed;
+      margin: 0;
+      padding: 3rem;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      background-image: var(--bg-img);
+      inset: 0;
+      opacity: 0.3;
+      background-repeat: repeat;
+      background-size: cover;
+      filter: blur(15px);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    hr {
+      border-color: #585858;
+      border-width: 1px;
+      border-style: solid;
+    }
+
+    html {
+      scrollbar-face-color: #646464;
+      scrollbar-base-color: #646464;
+      scrollbar-3dlight-color: #646464;
+      scrollbar-highlight-color: #646464;
+      scrollbar-track-color: #000;
+      scrollbar-arrow-color: #000;
+      scrollbar-shadow-color: #646464;
+      scrollbar-dark-shadow-color: #646464;
+      font-size: 16px;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 3px;
+    }
+
+    ::-webkit-scrollbar-button {
+      background-color: #666;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #646464;
+    }
+
+    ::-webkit-scrollbar-track-piece {
+      background-color: #000;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      height: 50px;
+      background-color: #666;
+      border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-corner {
+      background-color: #646464;
+    }
+
+    ::-webkit-resizer {
+      background-color: #666;
+    }
+
+    #markdown,
+    .container {
+      padding-top: 50px;
+    }
+
+    @media (max-width: 800px) {
+      body {
+        padding: 1.25rem;
       }
+    }
 
-      /* body::after {
-            content: "";
-            position: fixed;
-            inset: 0;
-            opacity: 0.2;
-            background-repeat: repeat;
-            background-size: cover;
-            pointer-events: none;
-            z-index: -1;
-            background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20512%20512%22%20width%3D%22512%22%20height%3D%22512%22%20preserveAspectRatio%3D%22none%22%3E%20%3Ccircle%20cx%3D%22256%22%20cy%3D%22256%22%20r%3D%2210.01%25%22%20fill%3D%22%23565559%22%20%2F%3E%3C%2Fsvg%3E);
-            background-size: 10px;
-            background-position: center;
-            background-repeat: repeat;
-        } */
+    .container {
+      max-width: 1300px;
+      margin: auto;
+    }
 
-      hr {
-        border-color: #585858;
-        border-width: 1px;
-        border-style: solid;
-      }
+    a {
+      color: #fff;
+    }
 
-      html {
-        scrollbar-face-color: #646464;
-        scrollbar-base-color: #646464;
-        scrollbar-3dlight-color: #646464;
-        scrollbar-highlight-color: #646464;
-        scrollbar-track-color: #000;
-        scrollbar-arrow-color: #000;
-        scrollbar-shadow-color: #646464;
-        scrollbar-dark-shadow-color: #646464;
-        font-size: 16px;
-      }
+    a:hover {
+      opacity: 0.8;
+    }
 
-      ::-webkit-scrollbar {
-        width: 8px;
-        height: 3px;
-      }
+    *,
+    *::after,
+    *::before {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
-      ::-webkit-scrollbar-button {
-        background-color: #666;
-      }
+    .field-group {
+      --input-text-color: #fff;
+      --input-placeholder-color: rgba(255, 255, 255, 0.6);
+      --input-bg-color: rgb(43, 43, 43);
+      --focus-input-bg-color: #00e8681b;
+      --text-color: #949faa;
+      --active-color: #00e869;
+      font-size: 1rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      width: max-content;
+      align-items: center;
+      position: relative;
+      isolation: isolate;
+    }
 
-      ::-webkit-scrollbar-track {
-        background-color: #646464;
-      }
+    .field {
+      appearance: none;
+      border: 1px solid var(--active-color);
+      background: transparent;
+      padding: .5rem 1rem;
+      border-radius: 50rem 0 0 50rem;
+      line-height: 1;
+      height: 100%;
+    }
 
-      ::-webkit-scrollbar-track-piece {
-        background-color: #000;
-      }
+    .btn {
+      height: 100%;
+      appearance: none;
+      border-radius: 0 50rem 50rem 0;
+      border: 1px solid var(--active-color);
+      background: var(--active-color);
+      padding: .5rem 1rem;
+      line-height: 1;
+    }
+  </style>
+</head>
 
-      ::-webkit-scrollbar-thumb {
-        height: 50px;
-        background-color: #666;
-        border-radius: 3px;
-      }
-
-      ::-webkit-scrollbar-corner {
-        background-color: #646464;
-      }
-
-      ::-webkit-resizer {
-        background-color: #666;
-      }
-
-      #markdown,
-      .container {
-        padding-top: 50px;
-      }
-
-      @media (max-width: 800px) {
-        body {
-          padding: 1.25rem;
-        }
-      }
-
-      .container {
-        max-width: 1300px;
-        margin: auto;
-      }
-
-      a {
-        color: #fff;
-      }
-
-      a:hover {
-        opacity: 0.8;
-      }
-
-      *,
-      *::after,
-      *::before {
-        box-sizing: border-box;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="input-group mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="https://example.com/"
-          id="text" />
-        <div class="input-group-append">
-          <button
-            class="btn btn-primary"
-            type="button"
-            onclick="shorturl()"
-            id="searchbtn">
-            Shorten
-          </button>
-        </div>
-        <p id="notice"></p>
-        <div class="modal" id="modal">
-          <div id="result"></div>
-          <button onclick='copyurl("result")'>
-            Copy
-          </button>
-      </div>
-      </div>
+<body>
+  <div class="container">
+    <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="61.703" height="28.047"
+      viewBox="0 0 61.703 28.047" style="margin-bottom:2rem;">
+      <g id="Group_88159" data-name="Group 88159" transform="translate(-608.5 -2468.587)">
+        <rect id="Rectangle_65" data-name="Rectangle 65" width="28.047" height="28.047"
+          transform="translate(608.5 2468.587)" fill="#00e86a"></rect>
+        <rect id="Rectangle_66" data-name="Rectangle 66" width="17.95" height="28.047"
+          transform="translate(639.913 2468.587)" fill="#00e86a"></rect>
+        <rect id="Rectangle_67" data-name="Rectangle 67" width="8.975" height="28.047"
+          transform="translate(661.228 2468.587)" fill="#00e86a"></rect>
+      </g>
+    </svg>
+    <div class="field-group">
+      <input type="text" class="field" placeholder="https://example.com/" class="field" id="text" />
+      <button class="btn btn--primary" type="button" onclick="shorturl()" id="searchbtn">
+        Shorten
+      </button>
     </div>
-    <script>
-      let res;
-      function shorturl() {
-        if (document.querySelector('#text').value == '') {
-          alert('Url cannot be empty!');
-          return;
-        }
+    <p id="notice"></p>
+    <div class="modal" id="modal">
+      <div id="result"></div>
+      <button onclick='copyurl("result")'>
+        Copy
+      </button>
+    </div>
+  </div>
+  </div>
+  <script>
+    let res;
+    function shorturl() {
+      if (document.querySelector('#text').value == '') {
+        alert('Url cannot be empty!');
+        return;
+      }
 
-        document.getElementById('searchbtn').disabled = true;
-        document.getElementById('searchbtn').innerHTML =
-          '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Please wait...';
-          console.log(document.querySelector('#text').value);
-        fetch(window.location.pathname, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ url: document.querySelector('#text').value }),
+      document.getElementById('searchbtn').disabled = true;
+      document.getElementById('searchbtn').innerHTML =
+        '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Please wait...';
+      console.log(document.querySelector('#text').value);
+      fetch(window.location.pathname, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ url: document.querySelector('#text').value }),
+      })
+        .then(function (response) {
+          return response.json();
         })
-          .then(function (response) {
-            return response.json();
-          })
-          .then(function (myJson) {
-            res = myJson;
-            document.getElementById('searchbtn').disabled = false;
-            document.getElementById('searchbtn').innerHTML = ' Shorten it';
-            if (res.key !== '')
-              document.getElementById('result').innerHTML =
-                window.location.host + res.key;
-            document.querySelector('#modal').classList.add('modal--show');
-          })
-          .catch(function (err) {
-            alert('Unknow error. Please retry!');
-            console.log(err);
-            document.getElementById('searchbtn').disabled = false;
-            document.getElementById('searchbtn').innerHTML = ' Shorten it';
-          });
-      }
-      function copyurl(id, attr) {
-        let target = null;
+        .then(function (myJson) {
+          res = myJson;
+          document.getElementById('searchbtn').disabled = false;
+          document.getElementById('searchbtn').innerHTML = ' Shorten it';
+          if (res.key !== '')
+            document.getElementById('result').innerHTML =
+              window.location.host + res.key;
+          document.querySelector('#modal').classList.add('modal--show');
+        })
+        .catch(function (err) {
+          alert('Unknow error. Please retry!');
+          console.log(err);
+          document.getElementById('searchbtn').disabled = false;
+          document.getElementById('searchbtn').innerHTML = ' Shorten it';
+        });
+    }
+    function copyurl(id, attr) {
+      let target = null;
 
-        if (attr) {
-          target = document.createElement('div');
-          target.id = 'tempTarget';
-          target.style.opacity = '0';
-          if (id) {
-            let curNode = document.querySelector('#' + id);
-            target.innerText = curNode[attr];
-          } else {
-            target.innerText = attr;
-          }
-          document.body.appendChild(target);
+      if (attr) {
+        target = document.createElement('div');
+        target.id = 'tempTarget';
+        target.style.opacity = '0';
+        if (id) {
+          let curNode = document.querySelector('#' + id);
+          target.innerText = curNode[attr];
         } else {
-          target = document.querySelector('#' + id);
+          target.innerText = attr;
         }
-
-        try {
-          let range = document.createRange();
-          range.selectNode(target);
-          window.getSelection().removeAllRanges();
-          window.getSelection().addRange(range);
-          document.execCommand('copy');
-          window.getSelection().removeAllRanges();
-          // console.log('Copy success')
-        } catch (e) {
-          // console.log('Copy error')
-        }
-
-        if (attr) {
-          // remove temp target
-          target.parentElement.removeChild(target);
-        }
+        document.body.appendChild(target);
+      } else {
+        target = document.querySelector('#' + id);
       }
-      if (window.location.host == 'lnks.eu.org') {
-        document.getElementById('notice').innerHTML = notice;
+
+      try {
+        let range = document.createRange();
+        range.selectNode(target);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand('copy');
+        window.getSelection().removeAllRanges();
+        // console.log('Copy success')
+      } catch (e) {
+        // console.log('Copy error')
       }
-    </script>
-  </body>
+
+      if (attr) {
+        // remove temp target
+        target.parentElement.removeChild(target);
+      }
+    }
+    if (window.location.host == 'lnks.eu.org') {
+      document.getElementById('notice').innerHTML = notice;
+    }
+  </script>
+</body>
+
 </html>
