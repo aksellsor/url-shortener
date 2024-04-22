@@ -154,9 +154,13 @@
           console.log(res);
           document.getElementById('searchbtn').disabled = false;
           document.getElementById('searchbtn').innerHTML = ' Shorten it';
-          if (res.key !== '')
-            document.getElementById('result').innerHTML =
-              'https://aksellerator.no' + res.key;
+          if (res.key !== '') {
+           if(res.key !== 'undefined') {
+             document.getElementById('result').innerHTML = 'https://aksellerator.no' + res.key;
+           } else {
+             document.getElementById('result').innerHTML = 'This name already exists";
+           }
+          }
           document.querySelector('#modal').classList.add('modal--show');
         })
         .catch(function (err) {
