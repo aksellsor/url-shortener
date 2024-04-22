@@ -116,18 +116,9 @@
         document.querySelector('#modal').classList.remove('modal--show');
       }
     });
-    document.getElementById("text").addEventListener("keyup", function(event) {
-      event.preventDefault();
-      if (event.keyCode === 13) {
-          document.getElementById("search-btn").click();
-      }
-  });
     document.querySelector("#text")?.addEventListener("keypress", function (event) {
-      // If the user presses the "Enter" key on the keyboard
       if (event.key === "Enter") {
-        // Cancel the default action, if needed
         event.preventDefault();
-        // Trigger the button element with a click
         document.getElementById("searchbtn").click();
       }
     });
