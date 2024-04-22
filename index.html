@@ -146,12 +146,17 @@
           document.getElementById('searchbtn').disabled = false;
           document.getElementById('searchbtn').innerHTML = ' Shorten it';
           console.log(res.key);
-          if (res.key?.startsWith("/") && res.key !== "/undefined") {document.getElementById('result').innerHTML = 'https://aksellerator.no' + res.key} 
-          else if(res.key === "/undefined") {document.getElementById('result').innerHTML = 'Name already in use';}
+          if (res.key?.startsWith("/") && res.key !== "/undefined") {
+            document.getElementById('result').innerHTML = 'https://aksellerator.no' + res.key;
+            document.querySelector('#modal').classList.add('modal--show');
+          } 
+          else if(res.key === "/undefined") {
+            document.getElementById('result').innerHTML = 'Name already in use';
+            document.querySelector('#modal').classList.add('modal--show');
+          }
           else {
             document.getElementById('result').innerHTML = res.key;
           }
-          document.querySelector('#modal').classList.add('modal--show');
         })
         .catch(function (err) {
           alert('Unknow error. Please retry!');
