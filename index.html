@@ -74,9 +74,10 @@
             transform="translate(661.228 2468.587)" fill="#00e86a"></rect>
         </g>
       </svg>
+      
+      <input type="text" class="field" placeholder="https://example.com/" class="field" id="text" />
       <div class="field-group">
-        <input type="text" class="field" placeholder="https://example.com/" class="field" id="text" />
-        <input type="text" class="field" placeholder="example" class="field" id="custom-slug" />
+      <input type="text" class="field" placeholder="example" class="field" id="custom-slug" />
         <button class="btn btn--primary" type="button" onclick="shorturl()" id="searchbtn">
           Shorten
         </button>
@@ -137,7 +138,7 @@
       fetch(window.location.pathname, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ url: document.querySelector('#text').value, customSlug: document.querySelector('#customslug').value }),
+        body: JSON.stringify({ url: document.querySelector('#text').value, customSlug: document.querySelector('#customslug')?.value || "" }),
       })
         .then(function (response) {
           return response.json();
