@@ -138,7 +138,7 @@
       fetch(window.location.pathname, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ url: document.querySelector('#text').value, customSlug: document.querySelector('#customslug')?.value || "" }),
+        body: JSON.stringify({ url: document.querySelector('#text').value, customslug: document.querySelector('#customslug')?.value || "" }),
       })
         .then(function (response) {
           return response.json();
