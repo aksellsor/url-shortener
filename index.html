@@ -155,14 +155,9 @@
           document.getElementById('searchbtn').disabled = false;
           document.getElementById('searchbtn').innerHTML = ' Shorten it';
           if (res.key !== '') {
-           if(res.key !== 'undefined') {
+            console.log(res.key);
              document.getElementById('result').innerHTML = 'https://aksellerator.no' + res.key;
-           } else {
-             document.getElementById('result').innerHTML = 'This name already exists";
-           }
-          } else {
-             document.getElementById('result').innerHTML = 'ERROR";
-          }
+          } 
           document.querySelector('#modal').classList.add('modal--show');
         })
         .catch(function (err) {
