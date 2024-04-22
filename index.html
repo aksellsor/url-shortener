@@ -156,7 +156,7 @@
           document.getElementById('searchbtn').innerHTML = ' Shorten it';
           if (res.key !== '')
             document.getElementById('result').innerHTML =
-              window.location.host + res.key;
+              'https://aksellerator.no/' + res.key;
           document.querySelector('#modal').classList.add('modal--show');
         })
         .catch(function (err) {
