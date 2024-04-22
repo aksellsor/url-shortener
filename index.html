@@ -145,6 +145,7 @@
           console.log(res);
           document.getElementById('searchbtn').disabled = false;
           document.getElementById('searchbtn').innerHTML = ' Shorten it';
+          console.log(res.key);
           if (res.key !== '' && res.key !== "/undefined") {document.getElementById('result').innerHTML = 'https://aksellerator.no' + res.key} 
           if(res.key === "/undefined") {document.getElementById('result').innerHTML = 'Name already in use';}
           document.querySelector('#modal').classList.add('modal--show');
